@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Boogaloo&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Science+Gothic:wght@100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+    --color-blush: #ffcdcc;
+    --color-blush-text: #ffeded;
+    --color-antique-rose: #CF8890;
+    --color-red-berry: #76202B;
+    --color-black-purple: #200607;
+    --font-serif: "Playfair Display", serif;
+
+    --font-playfair: "Playfair Display", serif;
+    --font-boogaloo: "Boogaloo", serif;
+    --font-science-gothic: "Science Gothic", sans-serif;
+
+    --animate-float: float 4s ease-in-out infinite;
+
+    @keyframes float {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-20px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+}
+
+body {
+    background-color: var(--color-blush);
+}

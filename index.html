@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en" class="overflow-x-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./dist/output.css" rel="stylesheet">
+
+    <script type="module" src="./script.js" defer></script>
+</head>
+
+<body class="overflow-x-hidden">
+    <!--HEADER-->
+    <header class="fixed top-0 left-0 right-0 z-50 py-4 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+
+        <nav class="flex justify-between items-center rounded-full px-6 py-3 relative z-50" style="
+            background: linear-gradient(135deg, rgba(255,255,255,0.54) 0%, rgba(255,240,240,0.38) 100%);
+            backdrop-filter: blur(10px) saturate(160%);
+            -webkit-backdrop-filter: blur(10px) saturate(160%);
+            border: 1px solid rgba(255,255,255,0.55);
+            box-shadow:
+                0 8px 32px rgba(118,32,43,0.10),
+                0 1.5px 0 rgba(255,255,255,0.85) inset,
+                0 -1px 0 rgba(207,136,144,0.18) inset;
+        ">
+
+            <!-- Logo -->
+            <a href="#" class="shrink-0">
+                <img src="./src/assets/KNGU-01-color.png" alt="Kngu Logo" class="w-20 sm:w-24">
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden lg:flex items-center gap-7 text-xs font-semibold tracking-[0.18em]"
+                style="color: #76202B; font-family: 'Open Sans', sans-serif;">
+
+                <a href=""
+                    class="relative py-0.5 transition-colors duration-200 hover:opacity-70 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-red-berry after:transition-all after:duration-300 hover:after:w-full">
+                    HOME
+                </a>
+
+                <div class="flex items-center gap-1 group relative cursor-pointer">
+                    <a href=""
+                        class="relative py-0.5 transition-colors duration-200 hover:opacity-70 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-red-berry after:transition-all after:duration-300 hover:after:w-full">
+                        SHOP
+                    </a>
+                    <img src="./src/assets/arrow-down.png" alt=""
+                        class="w-3 group-hover:rotate-180 transition-transform duration-300">
+                </div>
+
+                <div class="flex items-center gap-1 group relative cursor-pointer">
+                    <a href=""
+                        class="relative py-0.5 transition-colors duration-200 hover:opacity-70 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-red-berry after:transition-all after:duration-300 hover:after:w-full">
+                        BLOG
+                    </a>
+                    <img src="./src/assets/arrow-down.png" alt=""
+                        class="w-3 group-hover:rotate-180 transition-transform duration-300">
+                </div>
+
+                <div class="flex items-center gap-1 group relative cursor-pointer">
+                    <a href=""
+                        class="relative py-0.5 transition-colors duration-200 hover:opacity-70 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-red-berry after:transition-all after:duration-300 hover:after:w-full">
+                        PAGES
+                    </a>
+                    <img src="./src/assets/arrow-down.png" alt=""
+                        class="w-3 group-hover:rotate-180 transition-transform duration-300">
+                </div>
+
+                <a href=""
+                    class="relative py-0.5 transition-colors duration-200 hover:opacity-70 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-red-berry after:transition-all after:duration-300 hover:after:w-full">
+                    CONTACT
+                </a>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="hidden lg:flex items-center w-56 xl:w-72 relative rounded-full p-1" style="
+                background: rgba(255,255,255,0.60);
+                border: 1px solid rgba(207,136,144,0.30);
+                box-shadow: 0 2px 10px rgba(118,32,43,0.06), 0 1px 0 rgba(255,255,255,0.9) inset;
+            ">
+                <input type="text" placeholder="Search flowers..."
+                    class="w-full pl-4 pr-10 py-1.5 rounded-full outline-none text-sm bg-transparent placeholder-antique-rose"
+                    style="color: #76202B; font-family: 'Open Sans', sans-serif;">
+                <img src="./src/assets/search.png" alt=""
+                    class="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 cursor-pointer opacity-70 hover:opacity-100 transition-opacity">
+            </div>
+
+            <!-- Right Icons -->
+            <div class="flex items-center gap-4 sm:gap-5">
+                <a href="#" class="relative transition-transform active:scale-90 hover:scale-110 duration-200">
+                    <img src="./src/assets/grocery-store.png" alt="Cart" class="w-7 sm:w-8">
+                    <span
+                        class="absolute -top-1 -right-1 bg-red-berry text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center"
+                        style="box-shadow: 0 2px 6px rgba(118,32,43,0.35);">0</span>
+                </a>
+                <a href="#" class="hidden sm:block transition-transform hover:scale-110 active:scale-90 duration-200">
+                    <img src="./src/assets/user.png" alt="Account" class="w-8">
+                </a>
+
+                <!-- Hamburger -->
+                <button id="menu-toggle"
+                    class="lg:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none z-50 cursor-pointer"
+                    aria-label="Toggle Menu">
+                    <span id="hamburger-top"
+                        class="w-6 h-0.5 bg-red-berry rounded transition-all duration-300 origin-center"></span>
+                    <span id="hamburger-mid" class="w-6 h-0.5 bg-red-berry rounded transition-all duration-300"></span>
+                    <span id="hamburger-bot"
+                        class="w-6 h-0.5 bg-red-berry rounded transition-all duration-300 origin-center"></span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="absolute top-4 left-4 right-4 rounded-4xl pt-24 pb-8 px-6 shadow-2xl transition-all duration-500 ease-in-out transform -translate-y-full opacity-0 pointer-events-none invisible z-40"
+            style="
+            background: linear-gradient(160deg, rgba(118,32,43,0.88) 0%, rgba(32,6,7,0.94) 100%);
+            backdrop-filter: blur(24px) saturate(140%);
+            -webkit-backdrop-filter: blur(24px) saturate(140%);
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 24px 60px rgba(118,32,43,0.35), 0 1px 0 rgba(255,255,255,0.10) inset;
+        ">
+
+            <!-- Mobile Search -->
+            <div class="w-full relative rounded-full mb-6 p-1"
+                style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18);">
+                <input type="text" placeholder="Search flowers..."
+                    class="w-full pl-4 pr-10 py-2 rounded-full outline-none text-sm bg-transparent placeholder-blush-text"
+                    style="color: #ffeded; font-family: 'Open Sans', sans-serif;">
+                <img src="./src/assets/search.png" alt=""
+                    class="absolute right-3 top-1/2 -translate-y-1/2 w-6 opacity-60">
+            </div>
+
+            <!-- Mobile Links -->
+            <div class="flex flex-col space-y-1 text-center font-semibold tracking-[0.2em] text-sm"
+                style="font-family: 'Open Sans', sans-serif;">
+                <a href=""
+                    class="py-3 text-blush-text hover:text-white border-b border-white/10 transition-colors duration-200">HOME</a>
+                <a href=""
+                    class="py-3 text-blush-text hover:text-white border-b border-white/10 transition-colors duration-200">SHOP</a>
+                <a href=""
+                    class="py-3 text-blush-text hover:text-white border-b border-white/10 transition-colors duration-200">BLOG</a>
+                <a href=""
+                    class="py-3 text-blush-text hover:text-white border-b border-white/10 transition-colors duration-200">PAGES</a>
+                <a href="" class="py-3 text-blush-text hover:text-white transition-colors duration-200">CONTACT</a>
+            </div>
+        </div>
+
+    </header>
+
+    <!--HERO SECTION-->
+    <section
+        class="relative min-h-screen lg:h-screen w-full flex flex-col lg:block pt-28 pb-12 lg:py-0 overflow-visible"
+        style="
+        background: linear-gradient(135deg, #CF8890 0%, #a85a63 60%, #76202B 100%);
+    ">
+
+        <!-- Desktop Background Image Overlay -->
+        <div class="hidden lg:block absolute inset-0 z-0">
+            <img src="./src/assets/hero-bg.jpg" alt=""
+                class="w-full h-full object-cover  select-none pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex items-center lg:h-full w-full relative z-20">
+
+            <div class="flex flex-col gap-4 max-w-xl">
+
+                <!-- Badge -->
+                <div class="flex items-center gap-3 border-l-4 border-l-red-berry pl-2">
+                    <p class="text-white font-semibold text-sm leading-snug tracking-wide"
+                        style="font-family: 'Open Sans', sans-serif;">
+                        20% OFF for<br>New Member
+                    </p>
+                </div>
+
+                <!-- Headline -->
+                <h1
+                    class="text-antique-rose text-4xl sm:text-6xl md:text-7xl lg:text-[86px] font-bold font-boogaloo tracking-wider">
+                    Happy<br>
+                    <span class="text-red-berry">Mother's</span><br>
+                    Day
+                </h1>
+
+
+
+                <!-- CTA -->
+                <div class="flex items-center gap-4 flex-wrap">
+                    <button
+                        class="uppercase px-7 py-3 rounded-full font-bold text-sm tracking-widest cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 border-2 border-red-berry text-red-berry mt-4">
+                        Start Shopping
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Flower — overflows bottom on lg -->
+        <div class="relative lg:absolute lg:right-8 xl:right-16 lg:bottom-[-60px] xl:bottom-[-80px]
+                mx-auto lg:mx-0
+                w-64 sm:w-80 md:w-[420px] lg:w-[480px] xl:w-[540px]
+                animate-float z-10 mt-8 lg:mt-0 shrink-0">
+            <img src="./src/assets/mothers-day-flower.png" alt="Mother's Day Flowers"
+                class="w-full h-auto drop-shadow-2xl" style="filter: drop-shadow(0 24px 48px rgba(32,6,7,0.30));">
+        </div>
+
+    </section>
+
+    <!--SHOP FEATURES-->
+    <section class="px-4 sm:px-6 lg:px-8 mt-12 mb-12 relative z-20 overflow-hidden">
+
+        <div class="absolute max-w-md -left-32 top-0 animate-float">
+            <img src="./src/assets/flowerBackground1-flipped.png" alt="" class="w-full h-full opacity-75">
+        </div>
+
+        <div class="relative max-w-7xl mx-auto rounded-3xl px-5 py-6 md:py-10" style="
+            background: linear-gradient(135deg, rgba(255,255,255,0.65) 0%, rgba(255,235,235,0.48) 100%);
+            backdrop-filter: blur(18px) saturate(150%);
+            -webkit-backdrop-filter: blur(18px) saturate(150%);
+            border: 1px solid rgba(255,255,255,0.58);
+            box-shadow:
+                0 8px 40px rgba(118,32,43,0.09),
+                0 1.5px 0 rgba(255,255,255,0.88) inset,
+                0 -1px 0 rgba(207,136,144,0.14) inset;
+        ">
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-6">
+
+                <div class="flex flex-row md:flex-col items-center gap-5 md:gap-0 group">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
+                        style="
+                        background: linear-gradient(135deg, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.45) 100%);
+                        backdrop-filter: blur(12px) saturate(140%);
+                        -webkit-backdrop-filter: blur(12px) saturate(140%);
+                        border: 1.5px solid rgba(255,255,255,0.75);
+                        box-shadow:
+                            0 8px 20px rgba(118,32,43,0.06),
+                            0 1.5px 0 rgba(255,255,255,0.9) inset;
+                    ">
+                        <img src="./src/assets/free-shipping.png" alt="Free Delivery"
+                            class="w-8 h-8 sm:w-10 sm:h-10 object-contain filter brightness-90">
+                    </div>
+                    <div class="flex flex-col items-start md:items-center text-left md:text-center">
+                        <h3
+                            class="text-lg md:text-xl font-bold tracking-wider text-red-berry uppercase mt-0 md:mt-4 mb-1 md:mb-2">
+                            Free Delivery
+                        </h3>
+                        <p class="text-xs font-light leading-relaxed max-w-[220px]"
+                            style="color: rgba(118,32,43,0.55);">
+                            Free shipping around the world for all orders over $120
+                        </p>
+                    </div>
+                </div>
+
+                <!-- vertical divider desktop -->
+                <div class="hidden lg:block absolute left-1/4 top-8 bottom-8 w-px"
+                    style="background: linear-gradient(to bottom, transparent, rgba(207,136,144,0.25), transparent);">
+                </div>
+
+                <div class="flex flex-row md:flex-col items-center gap-5 md:gap-0 group">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
+                        style="
+                        background: linear-gradient(135deg, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.45) 100%);
+                        backdrop-filter: blur(12px) saturate(140%);
+                        -webkit-backdrop-filter: blur(12px) saturate(140%);
+                        border: 1.5px solid rgba(255,255,255,0.75);
+                        box-shadow:
+                            0 8px 20px rgba(118,32,43,0.06),
+                            0 1.5px 0 rgba(255,255,255,0.9) inset;
+                    ">
+                        <img src="./src/assets/online-store.png" alt="Online Order"
+                            class="w-8 h-8 sm:w-10 sm:h-10 object-contain filter brightness-90">
+                    </div>
+                    <div class="flex flex-col items-start md:items-center text-left md:text-center">
+                        <h3
+                            class="text-lg md:text-xl font-bold tracking-wider text-red-berry uppercase mt-0 md:mt-4 mb-1 md:mb-2">
+                            Online Order
+                        </h3>
+                        <p class="text-xs font-light leading-relaxed max-w-[220px]"
+                            style="color: rgba(118,32,43,0.55);">
+                            Don't worry you can order Online by our Site
+                        </p>
+                    </div>
+                </div>
+
+                <div class="hidden lg:block absolute left-2/4 top-8 bottom-8 w-px"
+                    style="background: linear-gradient(to bottom, transparent, rgba(207,136,144,0.25), transparent);">
+                </div>
+
+                <div class="flex flex-row md:flex-col items-center gap-5 md:gap-0 group">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
+                        style="
+                        background: linear-gradient(135deg, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.45) 100%);
+                        backdrop-filter: blur(12px) saturate(140%);
+                        -webkit-backdrop-filter: blur(12px) saturate(140%);
+                        border: 1.5px solid rgba(255,255,255,0.75);
+                        box-shadow:
+                            0 8px 20px rgba(118,32,43,0.06),
+                            0 1.5px 0 rgba(255,255,255,0.9) inset;
+                    ">
+                        <img src="./src/assets/flowers.png" alt="Freshness"
+                            class="w-8 h-8 sm:w-10 sm:h-10 object-contain filter brightness-90">
+                    </div>
+                    <div class="flex flex-col items-start md:items-center text-left md:text-center">
+                        <h3
+                            class="text-lg md:text-xl font-bold tracking-wider text-red-berry uppercase mt-0 md:mt-4 mb-1 md:mb-2">
+                            Freshness
+                        </h3>
+                        <p class="text-xs font-light leading-relaxed max-w-[220px]"
+                            style="color: rgba(118,32,43,0.55);">
+                            You have freshness flowers every single order
+                        </p>
+                    </div>
+                </div>
+
+                <div class="hidden lg:block absolute left-3/4 top-8 bottom-8 w-px"
+                    style="background: linear-gradient(to bottom, transparent, rgba(207,136,144,0.25), transparent);">
+                </div>
+
+                <div class="flex flex-row md:flex-col items-center gap-5 md:gap-0 group">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
+                        style="
+                        background: linear-gradient(135deg, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.45) 100%);
+                        backdrop-filter: blur(12px) saturate(140%);
+                        -webkit-backdrop-filter: blur(12px) saturate(140%);
+                        border: 1.5px solid rgba(255,255,255,0.75);
+                        box-shadow:
+                            0 8px 20px rgba(118,32,43,0.06),
+                            0 1.5px 0 rgba(255,255,255,0.9) inset;
+                    ">
+                        <img src="./src/assets/color-palette.png" alt="Made By Artists"
+                            class="w-8 h-8 sm:w-10 sm:h-10 object-contain filter brightness-90">
+                    </div>
+                    <div class="flex flex-col items-start md:items-center text-left md:text-center">
+                        <h3
+                            class="text-lg md:text-xl font-bold tracking-wider text-red-berry uppercase mt-0 md:mt-4 mb-1 md:mb-2">
+                            Made By Artists
+                        </h3>
+                        <p class="text-xs font-light leading-relaxed max-w-[220px]"
+                            style="color: rgba(118,32,43,0.55);">
+                            World for all made by artists orders over now
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!--NEW ARRIVALS-->
+    <section class="max-w-7xl mx-auto min-h-screen mb-12 px-4 md:px-0 relative overflow-hidden">
+        <div
+            class="relative w-full flex flex-col md:flex-row md:items-end md:justify-between gap-4 pt-16 pb-8 overflow-hidden select-none">
+
+            <span
+                class="absolute top-1/2  -translate-y-1/2 text-5xl sm:text-7xl md:text-[110px] lg:text-[130px] xl:text-[150px] font-black uppercase tracking-widest text-red-berry/7 pointer-events-none whitespace-nowrap z-0 font-boogaloo">
+                FRESH BLOOMS
+            </span>
+
+            <h2 class="relative text-3xl sm:text-4xl md:text-5xl font-bold text-red-berry tracking-wide z-10 max-w-md">
+                What's New?
+            </h2>
+
+            <p
+                class="relative text-xs sm:text-sm text-red-berry font-light leading-relaxed max-w-xs md:text-right z-10 md:mb-1">
+                A perfect blend of creativity, energy, communication, happiness, and love. Let us arrange a smile for
+                you.
+            </p>
+        </div>
+
+        <div id="product-display-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 md:gap-8"></div>
+
+        <img src="./src/assets/leavesBig.png" alt=""
+            class="absolute bottom-0 -right-48 max-w-xs -z-10 h-auto animate-float">
+    </section>
+
+    <!--VALENTINE BANNER-->
+    <section class="w-full relative bg-antique-rose not-last-of-type:flex flex-col lg:block mb-12 overflow-hidden">
+
+        <div class="w-full h-72 sm:h-96 lg:h-full lg:w-1/2 lg:absolute lg:left-0 lg:top-0 lg:bottom-0 z-10">
+            <img src="./src/assets/valentineBanner2.jpg" alt="The Cupid Post Valentines Bouquet"
+                class="w-full h-full object-cover rounded-none select-none pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-20 py-12 lg:py-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+                <div class="hidden lg:block pointer-events-none"></div>
+
+                <div class="relative flex flex-col justify-center items-start w-full">
+
+                    <span
+                        class="absolute left-0 -top-12 text-4xl sm:text-5xl xl:text-7xl font-black uppercase tracking-widest text-red-berry/10 pointer-events-none select-none z-0 font-sans whitespace-nowrap">
+                        FRESH BLOOMS
+                    </span>
+
+                    <h2 class="relative text-3xl sm:text-4xl xl:text-5xl font-bold text-red-berry z-10 max-w-xl">
+                        Surprise Your Loved Ones! Let Us Arrange a Smile for Them.
+                    </h2>
+
+                    <p
+                        class="relative text-xs sm:text-sm text-blush-text font-light leading-relaxed mt-4 mb-6 max-w-lg z-10">
+                        Where stunning blooms become instant inspiration. We craft premium seasonal arrangements
+                        designed to celebrate life's most beautiful milestones and create memories that last a lifetime.
+                    </p>
+
+                    <div
+                        class="flex flex-col gap-3.5 mb-8 z-10 relative w-full text-sm font-semibold text-red-berry tracking-wide">
+
+                        <div class="flex items-center gap-3">
+                            <img src="./src/assets/flower-point.png" alt="" class="w-4 h-4">
+                            <span>Freshly cut, vibrant premium stems</span>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <img src="./src/assets/flower-point.png" alt="" class="w-4 h-4">
+                            <span>Custom-tailored by our master florists</span>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <img src="./src/assets/flower-point.png" alt="" class="w-4 h-4">
+                            <span>Secure, signature luxury delivery</span>
+                        </div>
+                    </div>
+
+                    <button
+                        class="relative z-10 px-8 py-3.5 bg-red-berry text-blush-text font-bold uppercase tracking-widest text-sm rounded-full shadow-lg shadow-red-950/10 hover:bg-[#a62432] transition-colors active:scale-95 cursor-pointer">
+                        More Details
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+        <img src="./src/assets/floating-flower2.png" alt=""
+            class="absolute bottom-0 right-0 translate-x-[15%] translate-y-[20%] w-32 sm:w-48 md:w-64 lg:w-[18rem] h-auto z-30 select-none pointer-events-none drop-shadow-md animate-float">
+
+    </section>
+
+    <!-- FEATURED-->
+    <section class="w-full relative overflow-x-hidden min-h-screen py-12">
+
+        <img src="./src/assets/leaves.png" alt=""
+            class="absolute top-1/3 -left-10 z-10 pointer-events-none h-auto w-40 sm:w-56 md:w-64 opacity-40 lg:opacity-100 select-none drop-shadow-sm">
+
+        <div class="max-w-7xl mx-auto px-4 lg:px-0 relative z-20">
+
+            <div
+                class="relative w-full flex flex-col md:flex-row md:items-end md:justify-between gap-4 pt-16 pb-8 overflow-hidden select-none">
+                <span
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl sm:text-7xl md:text-[110px] lg:text-[130px] xl:text-[150px] font-black uppercase tracking-widest text-red-berry/7 pointer-events-none whitespace-nowrap z-0 font-boogaloo">
+                    SIGNATURE
+                </span>
+
+                <h2
+                    class="relative text-3xl sm:text-4xl md:text-5xl font-bold text-red-berry tracking-wide z-10 max-w-md">
+                    Featured Arrangements
+                </h2>
+
+                <p
+                    class="relative text-xs sm:text-sm text-red-berry font-light leading-relaxed max-w-xs md:text-right z-10 md:mb-1">
+                    A curated selection of our most-loved arrangements, balancing vibrant colors and delicate textures
+                    to bring elegance to any space.
+                </p>
+            </div>
+
+            <div
+                class="w-full flex flex-wrap justify-center items-center gap-2 sm:gap-4 mb-12 text-[10px] sm:text-xs font-bold uppercase tracking-widest select-none">
+                <button id="tab-new"
+                    class="tab-btn px-5 py-2 rounded-full bg-red-berry text-white transition-all duration-300 shadow-sm cursor-pointer">
+                    New
+                </button>
+                <button id="tab-featured"
+                    class="tab-btn px-5 py-2 rounded-full text-red-berry hover:bg-red-berry/10 transition-all duration-300 cursor-pointer">
+                    Featured
+                </button>
+                <button id="tab-bestsellers"
+                    class="tab-btn px-5 py-2 rounded-full text-red-berry hover:bg-red-berry/10 transition-all duration-300 cursor-pointer">
+                    Best Sellers
+                </button>
+            </div>
+
+            <div id="featured-showcase-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 md:gap-8">
+            </div>
+
+        </div>
+    </section>
+
+    <!--TESTIMONIALS-->
+    <section class="w-full relative overflow-hidden bg-antique-rose py-8 lg:py-12 select-none">
+
+        <div
+            class="absolute -left-12 top-1/2 -translate-y-1/2 -ml-20 lg:ml-0 w-48 sm:w-68 md:w-84 lg:w-lg h-auto opacity-30 sm:opacity-50 lg:opacity-100 pointer-events-none z-10">
+            <img src="./src/assets/Scarlet Romance Bouquet.png" alt="" class="w-full h-auto object-contain">
+        </div>
+
+        <div
+            class="absolute -right-12 top-1/2 -translate-y-1/2 -mr-20 lg:mr-0 w-48 sm:w-68 md:w-84 lg:w-xl h-auto opacity-30 sm:opacity-50 lg:opacity-100 pointer-events-none z-10">
+            <img src="./src/assets/mothers-day-flower.png" alt="" class="w-full h-auto object-contain">
+        </div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+
+            <div
+                class="w-full bg-white/20 backdrop-blur-xl border border-white/30 rounded-[2.5rem] px-6 py-12 md:p-16 text-center text-white shadow-2xl shadow-rose-950/5 relative overflow-hidden min-h-[380px] sm:min-h-[320px] flex flex-col justify-between items-center">
+
+                <div id="testimonial-slide-node"
+                    class="w-full max-w-3xl mx-auto transition-opacity duration-300 opacity-100">
+                </div>
+
+                <div id="testimonial-dots-container" class="flex justify-center items-center gap-2.5 mt-8 z-30">
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!--ARTISANS-->
+    <section class="w-full relative overflow-hidden mb-12 bg-transparent">
+
+        <div
+            class="absolute -right-24 -bottom-12 w-48 sm:w-68 md:w-84 lg:w-xl h-auto opacity-30 sm:opacity-50 lg:opacity-100 pointer-events-none z-10 animate-float">
+            <img src="./src/assets/flowerBackground1.png" alt="" class="w-full h-auto object-contain">
+        </div>
+
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+
+            <div
+                class="relative w-full flex flex-col md:flex-row md:items-end md:justify-between gap-4 pt-12 pb-16 lg:pb-20 overflow-hidden select-none">
+                <span
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl sm:text-7xl md:text-[110px] lg:text-[130px] xl:text-[150px] font-black uppercase tracking-widest text-red-berry/7 pointer-events-none whitespace-nowrap z-0 font-boogaloo">
+                    ARTISANS
+                </span>
+
+                <h2
+                    class="relative text-3xl sm:text-4xl md:text-5xl font-bold text-red-berry tracking-wide z-10 max-w-md">
+                    Meet our master Artisans
+                </h2>
+
+                <p
+                    class="relative text-xs sm:text-sm text-red-berry font-light leading-relaxed max-w-xs md:text-right z-10 md:mb-1">
+                    A perfect blend of creativity, energy, communication, happiness, and love. Let us arrange a smile
+                    for you.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 lg:pb-12 items-start">
+
+                <div
+                    class="relative aspect-[3/4.2] sm:aspect-[3/4.5] rounded-[2.5rem] overflow-hidden shadow-lg border border-white/10 group bg-rose-950/5">
+                    <img src="./src/assets/artisan-marcos.jpg" alt="Marcos Alonso"
+                        class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none">
+
+                    <div
+                        class="absolute inset-0 bg-linear-to-t from-[#4a121a]/95 via-[#4a121a]/30 to-transparent opacity-85 z-10">
+                    </div>
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8 z-20 flex flex-col items-start select-none">
+                        <h3 class="text-xl sm:text-2xl font-bold text-white tracking-wide">
+                            Marcos Alonso
+                        </h3>
+                        <p class="text-xs sm:text-sm text-rose-200/80 font-light tracking-wide mt-1">
+                            Master Botanist & Sourcing Head
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="relative aspect-[3/4.2] sm:aspect-[3/4.5] rounded-[2.5rem] overflow-hidden shadow-lg border border-white/10 group bg-rose-950/5 lg:translate-y-12">
+                    <img src="./src/assets/artisan-shara.jpg" alt="Shara Friken"
+                        class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none">
+
+                    <div
+                        class="absolute inset-0 bg-linear-to-t from-[#4a121a]/95 via-[#4a121a]/30 to-transparent opacity-85 z-10">
+                    </div>
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8 z-20 flex flex-col items-start select-none">
+                        <h3 class="text-xl sm:text-2xl font-bold text-white tracking-wide">
+                            Shara Friken
+                        </h3>
+                        <p class="text-xs sm:text-sm text-rose-200/80 font-light tracking-wide mt-1">
+                            Editorial Stylist & Visual Director
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="relative aspect-[3/4.2] sm:aspect-[3/4.5] rounded-[2.5rem] overflow-hidden shadow-lg border border-white/10 group bg-rose-950/5">
+                    <img src="./src/assets/artisan-torvi.jpg" alt="Torvi Greac"
+                        class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none">
+
+                    <div
+                        class="absolute inset-0 bg-linear-to-t from-[#4a121a]/95 via-[#4a121a]/30 to-transparent opacity-85 z-10">
+                    </div>
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8 z-20 flex flex-col items-start select-none">
+                        <h3 class="text-xl sm:text-2xl font-bold text-white tracking-wide">
+                            Torvi Greac
+                        </h3>
+                        <p class="text-xs sm:text-sm text-rose-200/80 font-light tracking-wide mt-1">
+                            Founder & Lead Creative
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="relative aspect-[3/4.2] sm:aspect-[3/4.5] rounded-[2.5rem] overflow-hidden shadow-lg border border-white/10 group bg-rose-950/5 lg:translate-y-12">
+                    <img src="./src/assets/artisan-alonso.jpg" alt="Alonso Gome"
+                        class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none">
+
+                    <div
+                        class="absolute inset-0 bg-linear-to-t from-[#4a121a]/95 via-[#4a121a]/30 to-transparent opacity-85 z-10">
+                    </div>
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8 z-20 flex flex-col items-start select-none">
+                        <h3 class="text-xl sm:text-2xl font-bold text-white tracking-wide">
+                            Alonso Gome
+                        </h3>
+                        <p class="text-xs sm:text-sm text-rose-200/80 font-light tracking-wide mt-1">
+                            Senior Floral Sculptor
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!--BLOG-->
+    <section class="w-full relative overflow-x-hidden py-16 lg:py-24 bg-antique-rose">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+
+            <div
+                class="relative w-full flex flex-col md:flex-row md:items-end md:justify-between gap-4 pt-12 pb-16 overflow-hidden select-none">
+                <span
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl sm:text-7xl md:text-[110px] lg:text-[130px] xl:text-[150px] font-black uppercase tracking-widest text-red-berry/7 pointer-events-none whitespace-nowrap z-0 font-boogaloo">
+                    JOURNAL
+                </span>
+
+                <h2
+                    class="relative text-3xl sm:text-4xl md:text-5xl font-bold text-red-berry tracking-wide z-10 max-w-md">
+                    The Botanical Edit
+                </h2>
+
+                <p
+                    class="relative text-xs sm:text-sm text-red-berry font-light leading-relaxed max-w-xs md:text-right z-10 md:mb-1">
+                    Step into our studio. Explore seasonal styling guides, curation secrets from our master artisans,
+                    and the art of floral design.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 xl:gap-10 items-stretch mb-16">
+
+                <div
+                    class="relative aspect-4/5 sm:aspect-3/4 md:aspect-4/5 rounded-[2.2rem] overflow-hidden shadow-lg border border-white/10 group bg-rose-950/5">
+                    <img src="./src/assets/blog1.jpg" alt="Monochromatic Tulips"
+                        class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none">
+
+                    <div
+                        class="absolute inset-0 bg-linear-to-t from-[#120a0b] via-[#120a0b]/85 to-transparent pt-32 p-6 sm:p-8 flex flex-col justify-end z-10">
+
+                        <h3 class="text-lg sm:text-xl font-bold text-white tracking-wide leading-snug">
+                            The Art of Minimalist Design: Styling Monochromatic Tulips
+                        </h3>
+
+                        <p class="text-[10px] text-rose-200/50 font-medium uppercase tracking-widest mt-2 mb-3">
+                            By <span class="text-rose-200/80">Marcos Alonso</span> • May 14, 2026
+                        </p>
+
+                        <p class="text-xs text-white/70 font-light leading-relaxed line-clamp-3 mb-4">
+                            Learn how to embrace negative space, choose the perfect ceramic vessel, and make a stunning,
+                            modern statement using nothing but pure spring tulips.
+                        </p>
+
+                        <a href="#"
+                            class="self-end text-xs font-bold text-white hover:text-brand-rose transition-colors flex items-center gap-1.5 uppercase tracking-wider group/link">
+                            Read Article
+                            <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+                                fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div
+                    class="relative aspect-4/5 sm:aspect-3/4 md:aspect-4/5 rounded-[2.2rem] overflow-hidden shadow-lg border border-white/10 group bg-rose-950/5">
+                    <img src="./src/assets/blog2.jpg" alt="Modern Bridal Suite"
+                        class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none">
+
+                    <div
+                        class="absolute inset-0 bg-linear-to-t from-[#120a0b] via-[#120a0b]/85 to-transparent pt-32 p-6 sm:p-8 flex flex-col justify-end z-10">
+
+                        <h3 class="text-lg sm:text-xl font-bold text-white tracking-wide leading-snug">
+                            Behind the Design: Curation Secrets of a Modern Bridal Suite
+                        </h3>
+
+                        <p class="text-[10px] text-rose-200/50 font-medium uppercase tracking-widest mt-2 mb-3">
+                            By <span class="text-rose-200/80">Shara Friken</span> • April 28, 2026
+                        </p>
+
+                        <p class="text-xs text-white/70 font-light leading-relaxed line-clamp-3 mb-4">
+                            An exclusive, inside look at how we balance color palette, texture, and natural movement to
+                            perfectly complement modern bridal couture.
+                        </p>
+
+                        <a href="#"
+                            class="self-end text-xs font-bold text-white hover:text-brand-rose transition-colors flex items-center gap-1.5 uppercase tracking-wider group/link">
+                            Read Article
+                            <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+                                fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div
+                    class="relative aspect-4/5 sm:aspect-3/4 md:aspect-4/5 rounded-[2.2rem] overflow-hidden shadow-lg border border-white/10 group bg-rose-950/5">
+                    <img src="./src/assets/blog3.jpg" alt="Florist Workspace"
+                        class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none">
+
+                    <div
+                        class="absolute inset-0 bg-linear-to-t from-[#120a0b] via-[#120a0b]/85 to-transparent pt-32 p-6 sm:p-8 flex flex-col justify-end z-10">
+
+                        <h3 class="text-lg sm:text-xl font-bold text-white tracking-wide leading-snug">
+                            The Language of Florals: Why Certain Blooms Evoke Deeper Memories
+                        </h3>
+
+                        <p class="text-[10px] text-rose-200/50 font-medium uppercase tracking-widest mt-2 mb-3">
+                            By <span class="text-rose-200/80">Torvi Greac</span> • May 10, 2026
+                        </p>
+
+                        <p class="text-xs text-white/70 font-light leading-relaxed line-clamp-3 mb-4">
+                            Exploring the emotional psychology behind botanical gifting and how handcrafted arrangements
+                            act as timeless messengers of love.
+                        </p>
+
+                        <a href="#"
+                            class="self-end text-xs font-bold text-white hover:text-brand-rose transition-colors flex items-center gap-1.5 uppercase tracking-wider group/link">
+                            Read Article
+                            <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+                                fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="w-full flex justify-center items-center relative z-20">
+                <button
+                    class="px-8 py-3.5 bg-red-berry text-blush-text font-bold uppercase tracking-widest text-sm rounded-full shadow-lg shadow-red-950/10 hover:bg-[#a62432] transition-colors active:scale-95 cursor-pointer">
+                    Read All Articles
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="w-full relative overflow-hidden bg-[#1a0e10] text-white py-16">
+
+        <div class="absolute inset-0 z-0">
+            <img src="./src/assets/footer-bg.jpg" alt=""
+                class="w-full h-full object-cover opacity-30 select-none pointer-events-none">
+            <div class="absolute inset-0 bg-linear-to-t from-[#0f0708] via-transparent to-transparent"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 flex flex-col items-center">
+
+            <div class="mb-8 select-none">
+                <img src="./src/assets/KNGU-WHITE.png" alt="Kngu Branding"
+                    class="w-28 sm:w-32 mx-auto tracking-widest object-contain">
+            </div>
+
+            <div class="w-full max-w-2xl mx-auto mb-16 px-2 sm:px-0">
+                <form
+                    class="w-full flex flex-row items-center bg-[#ded8d9] rounded-full p-1 shadow-inner group transition-all">
+                    <input type="email" placeholder="Your Email Address" required
+                        class="w-full min-w-0 bg-transparent pl-5 pr-4 py-2.5 outline-none text-gray-800 text-sm sm:text-base placeholder-gray-500 font-light">
+                    <button type="submit"
+                        class="bg-[#cf8890] hover:bg-[#bd737b] text-white text-xs sm:text-sm font-bold uppercase tracking-widest px-4 sm:px-8 py-3 rounded-full transition-colors active:scale-[0.98] cursor-pointer shrink-0">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+
+            <div
+                class="w-full grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12 text-center md:text-left border-b border-white/10 pb-12 mb-12">
+
+                <div class="flex flex-col gap-3.5">
+                    <h4 class="text-xs sm:text-sm font-bold uppercase tracking-widest text-white/95 font-sans mb-1">
+                        Information
+                    </h4>
+                    <div class="flex flex-col gap-2.5 text-xs text-white/70 font-light tracking-wide">
+                        <a href="#" class="hover:text-[#cf8890] transition-colors">Search Terms</a>
+                        <a href="#" class="hover:text-[#cf8890] transition-colors">Advanced Search</a>
+                        <a href="#" class="hover:text-[#cf8890] transition-colors">Helps &amp; Faqs</a>
+                        <a href="#" class="hover:text-[#cf8890] transition-colors">Store Location</a>
+                        <a href="#" class="hover:text-[#cf8890] transition-colors">Orders &amp; Returns</a>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-3.5">
+                    <h4 class="text-xs sm:text-sm font-bold uppercase tracking-widest text-white/95 font-sans mb-1">
+                        My Account
+                    </h4>
+                    <div class="flex flex-col gap-2.5 text-xs text-white/70 font-light tracking-wide">
+                        <a href="#" class="hover:text-[#cf8890] transition-colors">Delivery</a>
+                        <a href="#" class="hover:text-[#cf8890] transition-colors">Legal Notice</a>
+                        <a href="#" class="hover:text-[#cf8890] transition-colors">Secure Payment</a>
+                        <a href="#" class="hover:text-[#cf8890] transition-colors">Sitemap</a>
+                        <a href="#" class="hover:text-[#cf8890] transition-colors">About Us</a>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-3.5">
+                    <h4 class="text-xs sm:text-sm font-bold uppercase tracking-widest text-white/95 font-sans mb-1">
+                        Help
+                    </h4>
+                    <div class="flex flex-col gap-2.5 text-xs text-white/70 font-light tracking-wide">
+                        <a href="#" class="hover:text-[#cf8890] transition-colors">FAQ's</a>
+                        <a href="#" class="hover:text-[#cf8890] transition-colors">Pricing Plans</a>
+                        <a href="#" class="hover:text-[#cf8890] transition-colors">Track Your Order</a>
+                        <a href="#" class="hover:text-[#cf8890] transition-colors">Returns</a>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-3.5">
+                    <h4 class="text-xs sm:text-sm font-bold uppercase tracking-widest text-white/95 font-sans mb-1">
+                        Customer Service
+                    </h4>
+                    <div class="flex flex-col gap-2.5 text-xs text-white/70 font-light tracking-wide">
+                        <a href="#" class="hover:text-[#cf8890] transition-colors">My Account</a>
+                        <a href="#" class="hover:text-[#cf8890] transition-colors">Terms of Use</a>
+                        <a href="#" class="hover:text-[#cf8890] transition-colors">Deliveries &amp; Returns</a>
+                        <a href="#" class="hover:text-[#cf8890] transition-colors">Gift Card</a>
+                        <a href="#" class="hover:text-[#cf8890] transition-colors">Legal Notice</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="flex flex-col items-center gap-4 mb-8">
+                <h5 class="text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-white/80">
+                    Follow Us On
+                </h5>
+                <div class="flex justify-center items-center gap-3">
+                    <a href="#"
+                        class="w-9 h-9 rounded-md bg-white/10 hover:bg-[#cf8890] transition-colors duration-300 flex items-center justify-center border border-white/5 active:scale-95"
+                        aria-label="Facebook Link">
+                        <img src="./src/assets/facebook.png" alt="Facebook" class="w-5 h-5 object-contain">
+                    </a>
+                    <a href="#"
+                        class="w-9 h-9 rounded-md bg-white/10 hover:bg-[#cf8890] transition-colors duration-300 flex items-center justify-center border border-white/5 active:scale-95"
+                        aria-label="Instagram Link">
+                        <img src="./src/assets/instagram.png" alt="Instagram" class="w-5 h-5 object-contain ">
+                    </a>
+                    <a href="#"
+                        class="w-9 h-9 rounded-md bg-white/10 hover:bg-[#cf8890] transition-colors duration-300 flex items-center justify-center border border-white/5 active:scale-95"
+                        aria-label="TikTok Link">
+                        <img src="./src/assets/tiktok.png" alt="TikTok" class="w-5 h-5 object-contain">
+                    </a>
+                </div>
+            </div>
+
+            <div class="w-full text-center select-none">
+                <p class="text-[10px] sm:text-xs tracking-widest text-white/40 font-light leading-relaxed">
+                    &copy; 2026 Kngu Floral Design Studio. All Rights Reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>
